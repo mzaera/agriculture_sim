@@ -1,0 +1,1 @@
+/home/developer/agriculture_sim/devel/.private/husky_msgs/share/roseus/ros/husky_msgs/msg/HuskyStatus.l

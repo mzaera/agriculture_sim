@@ -1,0 +1,6 @@
+devel_space: /home/developer/agriculture_sim/devel
+install: false
+install_space: /home/developer/agriculture_sim/install
+profile: default
+source_space: /home/developer/agriculture_sim/src
+workspace: /home/developer/agriculture_sim

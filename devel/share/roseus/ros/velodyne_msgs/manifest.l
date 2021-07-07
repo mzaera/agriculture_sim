@@ -1,0 +1,1 @@
+/home/developer/agriculture_sim/devel/.private/velodyne_msgs/share/roseus/ros/velodyne_msgs/manifest.l

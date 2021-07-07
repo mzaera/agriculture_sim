@@ -1,0 +1,1 @@
+/home/developer/agriculture_sim/devel/.private/husky_msgs/share/gennodejs/ros/husky_msgs/_index.js

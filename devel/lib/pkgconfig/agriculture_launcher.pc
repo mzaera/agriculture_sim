@@ -1,0 +1,1 @@
+/home/developer/agriculture_sim/devel/.private/agriculture_launcher/lib/pkgconfig/agriculture_launcher.pc
