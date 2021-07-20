@@ -25,7 +25,7 @@ Panels:
     Experimental: false
     Name: Time
     SyncMode: 0
-    SyncSource: Realsense (depth)
+    SyncSource: Realsense (image)
 Preferences:
   PromptSaveOnExit: true
 Toolbars:
@@ -33,24 +33,6 @@ Toolbars:
 Visualization Manager:
   Class: ""
   Displays:
-    - Alpha: 0.5
-      Cell Size: 1
-      Class: rviz/Grid
-      Color: 160; 160; 164
-      Enabled: true
-      Line Style:
-        Line Width: 0.029999999329447746
-        Value: Lines
-      Name: Grid
-      Normal Cell Count: 0
-      Offset:
-        X: 0
-        Y: 0
-        Z: 0
-      Plane: XY
-      Plane Cell Count: 1000
-      Reference Frame: <Fixed Frame>
-      Value: true
     - Alpha: 1
       Class: rviz/RobotModel
       Collision Enabled: false
@@ -204,10 +186,10 @@ Visualization Manager:
       Cloud min depth (m): 0
       Cloud voxel size (m): 0.009999999776482582
       Color: 255; 255; 255
-      Color Transformer: ""
+      Color Transformer: RGB8
       Download graph: false
       Download map: false
-      Enabled: true
+      Enabled: false
       Filter ceiling (m): 0
       Filter floor (m): 0
       Invert Rainbow: false
@@ -218,7 +200,7 @@ Visualization Manager:
       Name: MapCloud
       Node filtering angle (degrees): 30
       Node filtering radius (m): 0
-      Position Transformer: ""
+      Position Transformer: XYZ
       Size (Pixels): 3
       Size (m): 0.009999999776482582
       Style: Flat Squares
@@ -226,7 +208,7 @@ Visualization Manager:
       Unreliable: false
       Use Fixed Frame: true
       Use rainbow: true
-      Value: true
+      Value: false
     - Alpha: 1
       Class: rtabmap_ros/MapGraph
       Enabled: true
@@ -298,7 +280,7 @@ Visualization Manager:
         user_rail_link:
           Value: false
         utm:
-          Value: false
+          Value: true
         velodyne:
           Value: false
         velodyne_base_link:
@@ -385,36 +367,6 @@ Visualization Manager:
       Topic: /move_base/DWAPlannerROS/global_plan
       Unreliable: false
       Value: true
-    - Alpha: 1
-      Autocompute Intensity Bounds: true
-      Autocompute Value Bounds:
-        Max Value: 10
-        Min Value: -10
-        Value: true
-      Axis: Z
-      Channel Name: intensity
-      Class: rviz/PointCloud2
-      Color: 255; 255; 255
-      Color Transformer: Intensity
-      Decay Time: 0
-      Enabled: false
-      Invert Rainbow: false
-      Max Color: 255; 255; 255
-      Max Intensity: 0
-      Min Color: 0; 0; 0
-      Min Intensity: 0
-      Name: " Lidar (points)"
-      Position Transformer: XYZ
-      Queue Size: 100
-      Selectable: true
-      Size (Pixels): 3
-      Size (m): 0.10000000149011612
-      Style: Flat Squares
-      Topic: /points
-      Unreliable: false
-      Use Fixed Frame: true
-      Use rainbow: true
-      Value: false
     - Class: rviz/Image
       Enabled: true
       Image Topic: /realsense/color/image_raw
@@ -446,7 +398,7 @@ Visualization Manager:
       Decay Time: 0
       Depth Map Topic: /realsense/depth/image_rect_raw
       Depth Map Transport Hint: raw
-      Enabled: true
+      Enabled: false
       Invert Rainbow: false
       Max Color: 255; 255; 255
       Max Intensity: 4096
@@ -464,28 +416,70 @@ Visualization Manager:
       Topic Filter: true
       Use Fixed Frame: true
       Use rainbow: true
-      Value: true
-    - Alpha: 0.699999988079071
-      Class: rviz/Map
-      Color Scheme: map
-      Draw Behind: false
-      Enabled: true
-      Name: Rtabmap (2D)
-      Topic: /rtabmap/grid_map
-      Unreliable: false
-      Use Timestamp: false
-      Value: true
+      Value: false
     - Alpha: 1
       Autocompute Intensity Bounds: true
       Autocompute Value Bounds:
-        Max Value: 4.5449419021606445
-        Min Value: -1.1589102745056152
+        Max Value: 10
+        Min Value: -10
         Value: true
       Axis: Z
       Channel Name: intensity
       Class: rviz/PointCloud2
       Color: 255; 255; 255
-      Color Transformer: AxisColor
+      Color Transformer: Intensity
+      Decay Time: 0
+      Enabled: false
+      Invert Rainbow: false
+      Max Color: 255; 255; 255
+      Max Intensity: 0
+      Min Color: 0; 0; 0
+      Min Intensity: 0
+      Name: " Lidar (points)"
+      Position Transformer: XYZ
+      Queue Size: 100
+      Selectable: true
+      Size (Pixels): 3
+      Size (m): 0.10000000149011612
+      Style: Flat Squares
+      Topic: /points
+      Unreliable: false
+      Use Fixed Frame: true
+      Use rainbow: true
+      Value: false
+    - Alpha: 0.699999988079071
+      Class: rviz/Map
+      Color Scheme: map
+      Draw Behind: false
+      Enabled: true
+      Name: Grid map (2D)
+      Topic: /rtabmap/grid_map
+      Unreliable: false
+      Use Timestamp: false
+      Value: true
+    - Class: octomap_rviz_plugin/ColorOccupancyGrid
+      Enabled: true
+      Max. Height Display: 3.4028234663852886e+38
+      Max. Octree Depth: 16
+      Min. Height Display: -3.4028234663852886e+38
+      Name: Occupancy Grid (Voxels)
+      Octomap Topic: /rtabmap/octomap_binary
+      Queue Size: 10
+      Value: true
+      Voxel Alpha: 1
+      Voxel Coloring: Z-Axis
+      Voxel Rendering: Occupied Voxels
+    - Alpha: 1
+      Autocompute Intensity Bounds: true
+      Autocompute Value Bounds:
+        Max Value: 3.499187469482422
+        Min Value: -1.1883697509765625
+        Value: true
+      Axis: Z
+      Channel Name: intensity
+      Class: rviz/PointCloud2
+      Color: 239; 41; 41
+      Color Transformer: FlatColor
       Decay Time: 0
       Enabled: false
       Invert Rainbow: false
@@ -493,7 +487,7 @@ Visualization Manager:
       Max Intensity: 4096
       Min Color: 0; 0; 0
       Min Intensity: 0
-      Name: Rtabmap full (3D)
+      Name: Occupied space
       Position Transformer: XYZ
       Queue Size: 100
       Selectable: true
@@ -508,14 +502,14 @@ Visualization Manager:
     - Alpha: 1
       Autocompute Intensity Bounds: true
       Autocompute Value Bounds:
-        Max Value: 3.4990527629852295
-        Min Value: -0.07620668411254883
+        Max Value: 3.499187707901001
+        Min Value: -0.08197757601737976
         Value: true
       Axis: Z
       Channel Name: intensity
       Class: rviz/PointCloud2
-      Color: 255; 255; 255
-      Color Transformer: AxisColor
+      Color: 206; 92; 0
+      Color Transformer: FlatColor
       Decay Time: 0
       Enabled: false
       Invert Rainbow: false
@@ -523,7 +517,7 @@ Visualization Manager:
       Max Intensity: 4096
       Min Color: 0; 0; 0
       Min Intensity: 0
-      Name: Rtabmap obst (3D)
+      Name: Obstacles
       Position Transformer: XYZ
       Queue Size: 10
       Selectable: true
@@ -534,24 +528,6 @@ Visualization Manager:
       Unreliable: false
       Use Fixed Frame: true
       Use rainbow: true
-      Value: false
-    - Alpha: 0.699999988079071
-      Class: rviz/Map
-      Color Scheme: map
-      Draw Behind: false
-      Enabled: false
-      Name: Octomap (2D projected map)
-      Topic: /projected_map
-      Unreliable: false
-      Use Timestamp: false
-      Value: false
-    - Class: rviz/MarkerArray
-      Enabled: false
-      Marker Topic: /occupied_cells_vis_array
-      Name: Octomap (3D)
-      Namespaces:
-        {}
-      Queue Size: 100
       Value: false
   Enabled: true
   Global Options:
